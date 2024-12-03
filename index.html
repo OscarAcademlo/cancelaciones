@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificación por WhatsApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f4f7f6;
+            padding: 1rem;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 { text-align: center; color: #075e54; margin-bottom: 1.5rem; }
+        button { margin-top: 1rem; background: #25d366; color: white; }
+        button:hover { background: #128c7e; }
+        .link {
+            margin-top: 1rem;
+        }
+        .btn-warning {
+            background-color: #f0ad4e;
+            border-color: #f0ad4e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Notificación de Cancelaciones</h1>
+        
+        <div class="form-group mb-3">
+            <label for="doctor">Seleccione el médico:</label>
+            <select id="doctor" class="form-select" onchange="updateMessage()">
+                <option value=ALESSANDRINI FLORENCIA"">ALESSANDRINI FLORENCIA</option>
+                <option value="BARATTA MARCELO">BARATTA MARCELO</option>
+                <option value="BELLIA SEBASTIAN">BELLIA SEBASTIAN</option>
+                <option value="BOCIAN JORGE">BOCIAN JORGE</option>
+                <option value="BONIFACIO JUAN PABLO">BONIFACIO JUAN PABLO</option>
+                <option value="CAINO ROMINA">CAINO ROMINA</option>
+                <option value="CABRERA MORRONE AUGUSTO">CABRERA MORRONE AUGUSTO</option>
+                <option value="CARIDE LUIS">CARIDE LUIS</option>
+                <option value="CAZZAÑIGA CECILIA">CAZZAÑIGA CECILIA</option>
+                <option value="CIGORRAGA JULIO">CIGORRAGA JULIO</option>
+                <option value="CIMATTI ANA LUCIA">CIMATTI ANA LUCIA</option>
+                <option value="CISNEROS ANDRES">CISNEROS ANDRES</option>
+                <option value="COLANGELO FERNANDO">COLANGELO FERNANDO</option>
+                <option value="CORRADO ROSINA">CORRADO ROSINA</option>
+                <option value="COZZARIN PABLO">COZZARIN PABLO</option>
+                <option value="CUOMO MELANIA">CUOMO MELANIA</option>
+                <option value="DE LUCA ESTEBAN">DE LUCA ESTEBAN</option>
+                <option value="DI SANTO DIEGO">DI SANTO DIEGO</option>
+                <option value="FERNANDEZ MARIANO">FERNANDEZ MARIANO</option>
+                <option value="FERNANDEZ MIGUEL ANGEL">FERNANDEZ MIGUEL ANGEL</option>
+                <option value="FERRER ASTRADA MIGUEL ANGEL">FERRER ASTRADA MIGUEL ANGEL</option>
+                <option value="FURQUE ANDRES">FURQUE ANDRES</option>
+                <option value="GARCIA PLATINI EDUARDO">GARCIA PLATINI EDUARDO</option>
+                <option value="GOMEZ CONSTENLA PATRICIO">GOMEZ CONSTENLA PATRICIO</option>
+                <option value="GOMEZ GIGLIO FABIAN">GOMEZ GIGLIO FABIAN</option>
+                <option value="GUISASOLA MARTIN">GUISASOLA MARTIN</option>
+                <option value="HUERTA ESCANDON DANIEL">HUERTA ESCANDON DANIEL</option>
+                <option value="LABENCKI GERMAN">LABENCKI GERMAN</option>
+                <option value="LIGIOS GABRIEL">LIGIOS GABRIEL</option>
+                <option value="LOPEZ RIVERA ARTURO">LOPEZ RIVERA ARTURO</option>
+                <option value="LUCACCINI RAUL">LUCACCINI RAUL</option>
+                <option value="LUCCON MARTIN">LUCCON MARTIN</option>
+                <option value="MACCIO AGUSTIN">MACCIO AGUSTIN</option>
+                <option value="MARQUES SANCHES PEREZ MERCEDES">MARQUES SANCHES PEREZ MERCEDES</option>
+                <option value="MARTINEZ FERNANDO">MARTINEZ FERNANDO</option>
+                <option value="MARTINEZ ALMUDEVAR JIMENA">MARTINEZ ALMUDEVAR JIMENA</option>
+                <option value="MENDIA GABRIELA">MENDIA GABRIELA</option>
+                <option value="MONTI EMILIANO">MONTI EMILIANO</option>
+                <option value="NAZZETTA FERNANDO">NAZZETTA FERNANDO</option>
+                <option value="NOFAL MARIA TERESA">NOFAL MARIA TERESA</option>
+                <option value="OLGUIN JOSEAU SANTIAGO">OLGUIN JOSEAU SANTIAGO</option>
+                <option value="OVALLE MAGDALENA">OVALLE MAGDALENA</option>
+                <option value="PALAZZO SOLEDAD">PALAZZO SOLEDAD</option>
+                <option value="PASQUALI CAROLINA">PASQUALI CAROLINA</option>
+                <option value="PEREZ PAMELA">PEREZ PAMELA</option>
+                <option value="PIERUCCI NORBERTO">PIERUCCI NORBERTO</option>
+                <option value="PLOMER MARCELA">PLOMER MARCELA</option>
+                <option value="RATTO SOLEDAD">RATTO SOLEDAD</option>
+                <option value="REY SANTIAGO">REY SANTIAGO</option>
+                <option value="RIESTRA BARBARA">RIESTRA BARBARA</option>
+                <option value="RODRIGUEZ ELIAS">RODRIGUEZ ELIAS</option>
+                <option value="ROSAS ALICIA">ROSAS ALICIA</option>
+                <option value="ROVERA STELLA">ROVERA STELLA</option>
+                <option value="SANDOVAL MARCELO">SANDOVAL MARCELO</option>
+                <option value="SIFFREDI GUILLERMO">SIFFREDI GUILLERMO</option>
+                <option value="SIGNORETTA MARIANO">SIGNORETTA MARIANO</option>
+                <option value="SPINELLI FEDERICO">SPINELLI FEDERICO</option>
+                <option value="TORRES GUIDO">TORRES GUIDO</option>
+                <option value="TREVISAN MARIANO">TREVISAN MARIANO</option>
+                <option value="VALENTI ARRIBILLAGA MARA">VALENTI ARRIBILLAGA MARA</option>
+                <option value="VAREA GONZALO">VAREA GONZALO</option>
+                <option value="VIALE MARCELO">VIALE MARCELO</option>
+                <option value="VILLARROEL FERNANDA">VILLARROEL FERNANDA</option>
+                <!-- Agrega más médicos según sea necesario -->
+            </select>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="turnDate">Fecha del turno:</label>
+            <input type="date" id="turnDate" class="form-control" onchange="updateMessage()">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="customMessage">Mensaje adicional:</label>
+            <textarea id="customMessage" class="form-control" rows="4" placeholder="Escribe un mensaje adicional..."></textarea>
+        </div>
+
+        <div id="phoneNumbersContainer" class="form-group mb-3">
+            <label>Ingrese los números de WhatsApp:</label>
+            <input type="text" class="form-control phone-number" placeholder="Ejemplo: 5491123456789">
+        </div>
+
+        <div class="d-flex flex-column">
+            <button onclick="addPhoneInput()" class="btn btn-outline-primary">Agregar otro número</button>
+            <button onclick="generateLinks()" class="btn btn-success">Generar Enlaces de WhatsApp</button>
+        </div>
+
+        <div id="result" class="mt-3"></div>
+    </div>
+
+  
+    <script>
+        let baseMessage = ""; // Mensaje base generado automáticamente
+    
+        function updateMessage() {
+            const doctor = document.getElementById('doctor').value;
+            const turnDate = document.getElementById('turnDate').value;
+    
+            if (doctor && turnDate) {
+                const [year, month, day] = turnDate.split('-');
+                const formattedDate = `${day}/${month}/${year}`;
+                baseMessage = `El Dr. ${doctor} suspenderá su atención el día ${formattedDate}. `;
+            } else {
+                baseMessage = ""; // Reinicia el mensaje si faltan datos
+            }
+    
+            // Actualiza el contenido del textarea con el mensaje base y texto adicional
+            const customMessage = document.getElementById('customMessage').value;
+            const additionalText = customMessage.replace(baseMessage, "");
+            document.getElementById('customMessage').value = `${baseMessage}${additionalText}`;
+        }
+    
+        function addPhoneInput() {
+            const container = document.getElementById('phoneNumbersContainer');
+            const newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.className = 'form-control phone-number mt-2';
+            newInput.placeholder = 'Ejemplo: 5491123456789';
+            container.appendChild(newInput);
+        }
+    
+        function generateLinks() {
+            const phoneInputs = document.querySelectorAll('.phone-number');
+            const resultDiv = document.getElementById('result');
+            const customMessage = document.getElementById('customMessage').value.trim();
+            resultDiv.innerHTML = ''; // Limpia resultados anteriores
+    
+            if (!baseMessage) {
+                alert('Por favor selecciona un médico y una fecha para generar el mensaje.');
+                return;
+            }
+    
+            if (!customMessage) {
+                alert('El mensaje no puede estar vacío.');
+                return;
+            }
+    
+            phoneInputs.forEach(input => {
+                const phone = input.value.trim();
+                if (phone) {
+                    const cleanPhone = phone.replace(/[^0-9]/g, '');
+                    const message = encodeURIComponent(customMessage);
+                    const whatsappLink = `https://wa.me/${cleanPhone}?text=${message}`;
+                    const callLink = `tel:${cleanPhone}`;
+    
+                    // Eliminar prefijo "549" si está presente
+                    const displayPhone = cleanPhone.startsWith('549') ? cleanPhone.slice(3) : cleanPhone;
+    
+                    // Contenedor para cada número
+                    const linkElement = document.createElement('div');
+                    linkElement.className = 'link mb-2';
+    
+                    // Botón de WhatsApp con número incluido
+                    const whatsappButton = document.createElement('button');
+                    whatsappButton.className = 'btn btn-success me-2';
+                    whatsappButton.textContent = `Enviar mensaje a ${phone}`;
+                    whatsappButton.onclick = () => window.open(whatsappLink, '_blank');
+    
+                    // Botón de llamada con número incluido (sin el prefijo "549")
+                    const callButton = document.createElement('button');
+                    callButton.className = 'btn btn-warning';
+                    callButton.textContent = `Llamar a ${displayPhone}`;
+                    callButton.onclick = () => window.open(callLink, '_self');
+    
+                    linkElement.appendChild(whatsappButton);
+                    linkElement.appendChild(callButton);
+                    resultDiv.appendChild(linkElement);
+                }
+            });
+    
+            if (resultDiv.children.length === 0) {
+                resultDiv.innerHTML = '<p>No se ingresaron números válidos.</p>';
+            }
+        }
+    </script>
+    
+
+    </script>
+</body>
+</html>
