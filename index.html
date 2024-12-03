@@ -158,58 +158,61 @@
         }
     
         function generateLinks() {
-            const phoneInputs = document.querySelectorAll('.phone-number');
-            const resultDiv = document.getElementById('result');
-            const customMessage = document.getElementById('customMessage').value.trim();
-            resultDiv.innerHTML = ''; // Limpia resultados anteriores
-    
-            if (!baseMessage) {
-                alert('Por favor selecciona un médico y una fecha para generar el mensaje.');
-                return;
-            }
-    
-            if (!customMessage) {
-                alert('El mensaje no puede estar vacío.');
-                return;
-            }
-    
-            phoneInputs.forEach(input => {
-                const phone = input.value.trim();
-                if (phone) {
-                    const cleanPhone = phone.replace(/[^0-9]/g, '');
-                    const message = encodeURIComponent(customMessage);
-                    const whatsappLink = `https://wa.me/${cleanPhone}?text=${message}`;
-                    const callLink = `tel:${cleanPhone}`;
-    
-                    // Eliminar prefijo "549" si está presente
-                    const displayPhone = cleanPhone.startsWith('549') ? cleanPhone.slice(3) : cleanPhone;
-    
-                    // Contenedor para cada número
-                    const linkElement = document.createElement('div');
-                    linkElement.className = 'link mb-2';
-    
-                    // Botón de WhatsApp con número incluido
-                    const whatsappButton = document.createElement('button');
-                    whatsappButton.className = 'btn btn-success me-2';
-                    whatsappButton.textContent = `Enviar mensaje a ${phone}`;
-                    whatsappButton.onclick = () => window.open(whatsappLink, '_blank');
-    
-                    // Botón de llamada con número incluido (sin el prefijo "549")
-                    const callButton = document.createElement('button');
-                    callButton.className = 'btn btn-warning';
-                    callButton.textContent = `Llamar a ${displayPhone}`;
-                    callButton.onclick = () => window.open(callLink, '_self');
-    
-                    linkElement.appendChild(whatsappButton);
-                    linkElement.appendChild(callButton);
-                    resultDiv.appendChild(linkElement);
-                }
-            });
-    
-            if (resultDiv.children.length === 0) {
-                resultDiv.innerHTML = '<p>No se ingresaron números válidos.</p>';
-            }
+    const phoneInputs = document.querySelectorAll('.phone-number');
+    const resultDiv = document.getElementById('result');
+    const customMessage = document.getElementById('customMessage').value.trim();
+    resultDiv.innerHTML = ''; // Limpia resultados anteriores
+
+    if (!baseMessage) {
+        alert('Por favor selecciona un médico y una fecha para generar el mensaje.');
+        return;
+    }
+
+    if (!customMessage) {
+        alert('El mensaje no puede estar vacío.');
+        return;
+    }
+
+    phoneInputs.forEach(input => {
+        const phone = input.value.trim();
+        if (phone) {
+            const cleanPhone = phone.replace(/[^0-9]/g, '');
+            const message = encodeURIComponent(customMessage);
+            const whatsappLink = `https://wa.me/${cleanPhone}?text=${message}`;
+
+            // Eliminar prefijo "549" si está presente
+            const displayPhone = cleanPhone.startsWith('549') ? cleanPhone.slice(3) : cleanPhone;
+
+            // Crear enlace para llamada sin el prefijo "549"
+            const callLink = `tel:${displayPhone}`;
+
+            // Contenedor para cada número
+            const linkElement = document.createElement('div');
+            linkElement.className = 'link mb-2';
+
+            // Botón de WhatsApp con número incluido
+            const whatsappButton = document.createElement('button');
+            whatsappButton.className = 'btn btn-success me-2';
+            whatsappButton.textContent = `Enviar mensaje a ${phone}`;
+            whatsappButton.onclick = () => window.open(whatsappLink, '_blank');
+
+            // Botón de llamada con número incluido (sin el prefijo "549")
+            const callButton = document.createElement('button');
+            callButton.className = 'btn btn-warning';
+            callButton.textContent = `Llamar a ${displayPhone}`;
+            callButton.onclick = () => window.open(callLink, '_self');
+
+            linkElement.appendChild(whatsappButton);
+            linkElement.appendChild(callButton);
+            resultDiv.appendChild(linkElement);
         }
+    });
+
+    if (resultDiv.children.length === 0) {
+        resultDiv.innerHTML = '<p>No se ingresaron números válidos.</p>';
+    }
+}
+
     </script>
     
 
