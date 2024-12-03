@@ -179,7 +179,8 @@
                     const cleanPhone = phone.replace(/[^0-9]/g, '');
                     const message = encodeURIComponent(customMessage);
                     const whatsappLink = `https://wa.me/${cleanPhone}?text=${message}`;
-                    const callLink = `tel:${cleanPhone}`;
+                    const callLink = `tel:${displayPhone}`;
+
     
                     // Eliminar prefijo "549" si está presente
                     const displayPhone = cleanPhone.startsWith('549') ? cleanPhone.slice(3) : cleanPhone;
